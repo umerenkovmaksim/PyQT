@@ -307,12 +307,14 @@ class MyWidget(QMainWindow, Ui_Form):
         try:
             if n == '^':
                 self.calculator += '**'
+                self.table.display('')
+                self.displayed = ''
             elif n == '√':
-                self.table.display(eval(self.calculator) ** (1 / 2))
-                self.calculator = ''
+                self.table.display(eval(self.displayed) ** (1 / 2))
+                self.displayed = ''
             else:
-                self.table.display(factorial(eval(self.calculator)))
-                self.calculator = ''
+                self.table.display(factorial(eval(self.displayed)))
+                self.displayed = ''
         except:
             self.table.display('Error')
 
